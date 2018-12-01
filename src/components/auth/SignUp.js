@@ -8,16 +8,20 @@ class SignUp extends Component {
     email: "",
     password: "",
     firstName: "",
-    lastName: ""
+    lastName: "",
+    class: "",
+    userType: ""
   };
   handlleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
     });
+    console.log(this.state);
   };
   handlleSubmit = e => {
     e.preventDefault();
     this.props.signUp(this.state);
+    console.log(this.state);
   };
   render() {
     const { auth, authError } = this.props;
@@ -46,6 +50,27 @@ class SignUp extends Component {
           <div className="input-field">
             <label htmlFor="lastName">Last Name</label>
             <input type="text" id="lastName" onChange={this.handlleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="class">class</label>
+            <input type="text" id="class" onChange={this.handlleChange} />
+          </div>
+          <div className="input-field col s12">
+            <select
+              id="userType"
+              value={this.state.userType}
+              className="browser-default"
+              onChange={this.handlleChange}
+            >
+              <option value="" disabled>
+                Choose your option
+              </option>
+              <option value="manager">manager</option>
+              <option value="teacher">teacher</option>
+              <option value="student">student</option>
+              <option value="perent">perent</option>
+            </select>
+            <label>user type</label>
           </div>
           <div className="input-field">
             <button className="btn pink lighetn-1 z-depth-0">Sign Up</button>
