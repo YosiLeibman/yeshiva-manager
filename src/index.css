@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Heebo:100,300,800&subset=hebrew");
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #010b1c;
+* {
   font-family: "Heebo", sans-serif;
   font-weight: 300;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #ddc485;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #010b1c;
 }
 
 nav {
@@ -14,28 +21,94 @@ nav {
   color: #010b1c !important;
 }
 
-nav ul li a {
-  background: #ddc485;
-  color: #010b1c;
-}
 form {
   padding: 20px;
   margin-top: 60px;
+  color: #ddc485;
+  background: rgba(221, 196, 133, 0.4);
+  width: 70%;
+  margin: auto;
 }
 
-form button,
+input {
+  width: 80%;
+  padding: 5px;
+  margin: 8px;
+}
+
 form h5 {
-  margin: 20px 0;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+form button {
+  margin: 20px 30px;
+  padding: 5px 15px;
+  font-size: 1.3rem;
+  background: #010b1c;
+  color: #ddc485;
+  float: left;
+  border: none;
+}
+
+.logo-wrapper {
+  text-align: center;
+  height: 20vh;
+  padding-top: 7vh;
 }
 
 .logo {
   font-weight: 800;
-  color: #010b1c !important;
+  font-size: 2.5rem;
+  /* color: #010b1c !important; */
+  color: #ddc485;
+  text-decoration: none;
 }
 
-.box {
-  border: 2px solid #ddc485;
+.container {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-around;
+  flex-wrap: wrap;
+}
+
+.container .box {
+  border: 3px solid #ddc485;
   color: #ddc485;
   margin: auto;
-  padding: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .box:hover {
+  background: rgba(221, 196, 133, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.box a {
+  color: #ddc485;
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 4rem;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: rtl;
+  color: #ddc485;
 }

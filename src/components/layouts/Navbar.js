@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SingedInLinks from "./SingedInLinks";
-import SingedOutLinks from "./SingedOutLinks";
+import SignedInScreen from "./signedInScreen";
+import SignedOutScreen from "./signedOutScreen";
 import { connect } from "react-redux";
 
 const Navbar = props => {
   const { auth, profile } = props;
-  const links = auth.uid ? (
-    <SingedInLinks profile={profile} />
+  const screen = auth.uid ? (
+    <SignedInScreen profile={profile} />
   ) : (
-    <SingedOutLinks />
+    <SignedOutScreen />
   );
   return (
-    <nav className="nav-wrapper">
-      <div className="container">
-        <Link to="/" className="brand-logo logo right">
+    <div>
+      <div className="logo-wrapper">
+        <Link to="/" className="logo">
           Yeshiva Manager
         </Link>
-        {links}
       </div>
-    </nav>
+      <div>{screen}</div>
+    </div>
   );
 };
 

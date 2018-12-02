@@ -21,22 +21,38 @@ class SignIn extends Component {
   };
 
   render() {
-    const { authError, auth } = this.props;
-    if (auth.uid) return <Redirect to="/" />;
+    const { authError, auth, profile } = this.props;
+    // here i can check the user type and redirect to the right place
+    if (auth.uid && profile.userType) {
+      switch (profile.userType) {
+        case "manager":
+        case "teacher":
+          return <Redirect to="/teacher-dashboard" />;
+        case "student":
+        case "perent":
+          return <Redirect to="/student-dashboard" />;
+        default:
+          return <Redirect to="/" />;
+      }
+    }
 
     return (
       <div className="container">
-        <form onSubmit={this.handlleSubmit} className="white">
+        <form onSubmit={this.handlleSubmit}>
           <h5 className="gray-text text-daren-3">Sign In</h5>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handlleChange} />
+            <input
+              type="email"
+              placeholder="email"
+              id="email"
+              onChange={this.handlleChange}
+            />
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
+              placeholder="password"
               onChange={this.handlleChange}
             />
           </div>
@@ -55,7 +71,8 @@ class SignIn extends Component {
 const mapStateToProps = state => {
   return {
     authError: state.auth.authError,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   };
 };
 

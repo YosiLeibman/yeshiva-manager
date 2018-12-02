@@ -5,17 +5,18 @@ import { signOut } from "../../store/actions/authActions";
 
 const SignedInScreen = props => {
   return (
-    <div>
+    <div className="container">
       <div className="box">
+        <i className="material-icons">face</i>
         <NavLink to="/create">New Project</NavLink>
       </div>
       <div className="box">
+        <i className="material-icons">face</i>
         <a onClick={props.signOut}>Log Out</a>
       </div>
       <div className="box">
-        <NavLink to="/">
-          <a> hello {props.profile.firstName} </a>
-        </NavLink>
+        <i className="material-icons">face</i>
+        <NavLink to="/">hello {props.profile.userType}</NavLink>
       </div>
     </div>
   );

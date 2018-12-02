@@ -24,36 +24,67 @@ class SignUp extends Component {
     console.log(this.state);
   };
   render() {
-    const { auth, authError } = this.props;
-    if (auth.uid) return <Redirect to="/" />;
+    const { auth, authError, profile } = this.props;
+    if (auth.uid && profile.userType) {
+      switch (profile.userType) {
+        case "manager":
+        case "teacher":
+          console.log("manager or teacher", profile.userType);
+          return <Redirect to="/teacher-dashboard" />;
+        case "student":
+        case "perent":
+          console.log("student or perent", profile.userType);
+          return <Redirect to="/student-dashboard" />;
+        default:
+          console.log("something wronge", profile.userType, profile);
+
+          return <Redirect to="/" />;
+      }
+    }
 
     return (
       <div className="container">
         <form onSubmit={this.handlleSubmit} className="white">
           <h5 className="gray-text text-daren-3">Sign Up</h5>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handlleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
             <input
-              type="password"
-              id="password"
+              type="email"
+              id="email"
+              placeholder="email"
               onChange={this.handlleChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handlleChange} />
+            <input
+              type="password"
+              id="password"
+              placeholder="password"
+              onChange={this.handlleChange}
+            />
           </div>
           <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handlleChange} />
+            <input
+              type="text"
+              id="firstName"
+              placeholder="first name"
+              onChange={this.handlleChange}
+            />
           </div>
           <div className="input-field">
-            <label htmlFor="class">class</label>
-            <input type="text" id="class" onChange={this.handlleChange} />
+            <input
+              type="text"
+              id="lastName"
+              placeholder="last name"
+              onChange={this.handlleChange}
+            />
+          </div>
+          <div className="input-field">
+            <input
+              type="text"
+              id="class"
+              placeholder="class"
+              onChange={this.handlleChange}
+            />
           </div>
           <div className="input-field col s12">
             <select
@@ -87,7 +118,8 @@ class SignUp extends Component {
 const mapStateToProps = state => {
   return {
     auth: state.firebase.auth,
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    profile: state.firebase.profile
   };
 };
 
