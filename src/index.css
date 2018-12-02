@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:100,300,800&subset=hebrew");
+
 body {
   margin: 0;
   padding: 0;
   background: #95e8f3;
+  font-family: "Heebo", sans-serif;
+  font-weight: 300;
 }
 
 form {
@@ -12,4 +16,8 @@ form {
 form button,
 form h5 {
   margin: 20px 0;
+}
+
+.logo {
+  font-weight: 800;
 }

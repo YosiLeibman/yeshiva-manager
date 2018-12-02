@@ -6,7 +6,7 @@ import { signOut } from "../../store/actions/authActions";
 const SignedInLinks = props => {
   return (
     <div>
-      <ul className="right">
+      <ul className="left">
         <li>
           <NavLink to="/create">New Project</NavLink>
         </li>
