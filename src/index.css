@@ -3,11 +3,21 @@
 body {
   margin: 0;
   padding: 0;
-  background: #95e8f3;
+  background: #010b1c;
   font-family: "Heebo", sans-serif;
   font-weight: 300;
+  box-sizing: border-box;
 }
 
+nav {
+  background: #ddc485;
+  color: #010b1c !important;
+}
+
+nav ul li a {
+  background: #ddc485;
+  color: #010b1c;
+}
 form {
   padding: 20px;
   margin-top: 60px;
@@ -20,4 +30,12 @@ form h5 {
 
 .logo {
   font-weight: 800;
+  color: #010b1c !important;
+}
+
+.box {
+  border: 2px solid #ddc485;
+  color: #ddc485;
+  margin: auto;
+  padding: auto;
 }
