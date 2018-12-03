@@ -3,13 +3,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "../layouts/Navbar";
 import Dashboard from "../dashboard/Dashboard";
-import studentDashboard from "../dashboard/studentDashboard";
-import teacherDashboard from "../dashboard/teacherDashboard";
+import StudentDashboard from "../dashboard/StudentDashboard";
+import TeacherDashboard from "../dashboard/TeacherDashboard";
 import ProjectDetails from "../projects/ProjectDetails";
 import CreateProject from "../projects/CreateProject";
 import SignIn from "../auth/SignIn";
 import SignUp from "../auth/SignUp";
-import attendaceFor from "../attendace/attendaceFor";
+import AttendaceFor from "../attendace/AttendaceFor";
 
 class App extends Component {
   render() {
@@ -22,17 +22,17 @@ class App extends Component {
             <Route
               exact
               path="/student-dashboard"
-              component={studentDashboard}
+              component={StudentDashboard}
             />
             <Route
               exact
               path="/teacher-dashboard"
-              component={teacherDashboard}
+              component={TeacherDashboard}
             />
             <Route path="/project/:id" component={ProjectDetails} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/attendace-for" component={attendaceFor} />
+            <Route path="/attendace-for" component={AttendaceFor} />
             <Route path="/create" component={CreateProject} />
           </Switch>
         </div>

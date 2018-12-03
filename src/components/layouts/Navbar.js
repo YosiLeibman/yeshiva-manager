@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignedInScreen from "./signedInScreen";
-import SignedOutScreen from "./signedOutScreen";
+import SignedInScreen from "./SignedInScreen";
+import SignedOutScreen from "./SignedOutScreen";
 import { connect } from "react-redux";
 
 const Navbar = props => {

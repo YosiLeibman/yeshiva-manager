@@ -6,8 +6,18 @@ import { connect } from "react-redux";
 
 class teacherDashboard extends Component {
   render() {
-    const { projects, auth, notifications } = this.props;
-    if (!auth.uid) return <Redirect to="/signin" />;
+    const { auth, notifications, profile } = this.props;
+    if (!auth.uid) {
+      return <Redirect to="/signin" />;
+    } else if (profile.userType) {
+      switch (profile.userType) {
+        case "student":
+        case "perent":
+          return <Redirect to="/student-dashboard" />;
+        default:
+      }
+    }
+
     return (
       <div className="container">
         <h1>teacher dashboard</h1>
@@ -31,9 +41,9 @@ class teacherDashboard extends Component {
 
 const mapStateToProps = state => {
   return {
-    projects: state.firestore.ordered.projects,
     auth: state.firebase.auth,
-    notifications: state.firestore.ordered.notifications
+    notifications: state.firestore.ordered.notifications,
+    profile: state.firebase.profile
   };
 };
 

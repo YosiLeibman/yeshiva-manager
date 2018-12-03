@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import StudentList from "../students/StudentList";
 
 class attendaceFor extends Component {
   state = {
@@ -16,9 +17,17 @@ class attendaceFor extends Component {
     console.log(this.state);
   };
 
+  // after output the sdorim - bring here the list of all
+  // students from another component
   render() {
-    const { auth } = this.props;
-    if (!auth.uid) return <Redirect to="/signin" />;
+    const { auth, profile } = this.props;
+    if (auth.uid && profile.userType) {
+      switch (profile.userType) {
+        case "student":
+        case "perent":
+          return <Redirect to="/student-dashboard" />;
+      }
+    }
     return (
       <div className="container">
         <h1>choose seider</h1>
@@ -34,6 +43,7 @@ class attendaceFor extends Component {
         <div className="box" id="chsidess-erev" onClick={this.handlleChoose}>
           <p>chsidess erev</p>
         </div>
+        <StudentList mission={"attendace"} />
       </div>
     );
   }
@@ -41,7 +51,8 @@ class attendaceFor extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   };
 };
 
