@@ -19,18 +19,18 @@ const StudentDetails = props => {
   }
   let missionDiv;
   if (mission === "attendace") {
-    missionDiv = <AttendacePart msg={"bla"} />;
+    missionDiv = <AttendacePart user={user} />;
   } else if (mission === "grades") {
-    missionDiv = <AttendacePart msg={"bla bla"} />; // need to be changed to graeds part comp.
+    missionDiv = <AttendacePart user={user} />; // need to be changed to graeds part comp.
   } else {
-    missionDiv = <AttendacePart msg={"bla blah bla"} />; // need to be changed to graeds part comp.
+    missionDiv = <AttendacePart user={user} />; // need to be changed to graeds part comp.
   }
   return (
     <div className="student" key={user.id}>
-      <p>
+      <p className="student-name">
         {user.firstName} {user.lastName}
       </p>
-      <p>{missionDiv}</p>
+      {missionDiv}
     </div>
   );
 };

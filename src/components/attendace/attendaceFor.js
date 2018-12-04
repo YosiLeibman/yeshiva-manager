@@ -2,17 +2,16 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import StudentList from "../students/StudentList";
+import ReactRadioButtonGroup from "react-radio-button-group";
 
 class attendaceFor extends Component {
   state = {
-    seider: "",
-    date: ""
+    seider: ""
   };
 
   handlleChoose = e => {
     this.setState({
-      seider: e.currentTarget.id,
-      date: new Date()
+      seider: e.currentTarget.id
     });
     console.log(this.state);
   };
@@ -28,21 +27,24 @@ class attendaceFor extends Component {
           return <Redirect to="/student-dashboard" />;
       }
     }
+    // hree i can also make radio buttuns insted of
+    // all this divs and grids. it will be easeier and nicer.
     return (
       <div className="container">
-        <h1>choose seider</h1>
-        <div className="box" id="chsidess-boker" onClick={this.handlleChoose}>
-          <p>chsidess boker</p>
-        </div>
-        <div className="box" id="nigle-boker" onClick={this.handlleChoose}>
-          <p>nigle boker</p>
-        </div>
-        <div className="box" id="nigle-afternoon" onClick={this.handlleChoose}>
-          <p>nigle afternoon</p>
-        </div>
-        <div className="box" id="chsidess-erev" onClick={this.handlleChoose}>
-          <p>chsidess erev</p>
-        </div>
+        <ReactRadioButtonGroup
+          options={["One", "Two", "Three"]}
+          name="seider"
+          isStateful={true}
+          value="Two"
+          onChange={checkedValue => {
+            console.log("New value: ", checkedValue);
+          }}
+          fireOnMount={true}
+          itemClassName="cssForItem"
+          inputClassName="cssForInput"
+          labelClassName="label"
+          groupClassName="radio-group"
+        />
         <StudentList mission={"attendace"} />
       </div>
     );

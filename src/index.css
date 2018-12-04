@@ -12,7 +12,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   background: #010b1c;
 }
 
@@ -111,4 +110,46 @@ form button {
   white-space: nowrap;
   direction: rtl;
   color: #ddc485;
+}
+
+.student {
+  border: 1px solid #ddc485;
+  color: #ddc485;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.student-name {
+  font-size: 1.3rem;
+}
+
+input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+.label {
+  color: #b3b3b3;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+
+input[type="radio"]:checked + label {
+  color: #999999;
+  background: #fff;
+}
+
+label + input[type="radio"] + label {
+  border-left: solid 1px #fff;
+}
+
+.radio-group {
+  border: solid 1px #fff;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 3px;
+  overflow: hidden;
 }
