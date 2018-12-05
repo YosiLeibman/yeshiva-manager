@@ -5,15 +5,17 @@ import StudentList from "../students/StudentList";
 import ReactRadioButtonGroup from "react-radio-button-group";
 
 class attendaceFor extends Component {
-  state = {
-    seider: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      seider: ""
+    };
+  }
 
-  handlleChoose = e => {
+  updateSeider = e => {
     this.setState({
-      seider: e.currentTarget.id
+      seider: e.target.id
     });
-    console.log(this.state);
   };
 
   // after output the sdorim - bring here the list of all
@@ -27,24 +29,51 @@ class attendaceFor extends Component {
           return <Redirect to="/student-dashboard" />;
       }
     }
-    // hree i can also make radio buttuns insted of
-    // all this divs and grids. it will be easeier and nicer.
+
     return (
       <div className="container">
-        <ReactRadioButtonGroup
-          options={["One", "Two", "Three"]}
-          name="seider"
-          isStateful={true}
-          value="Two"
-          onChange={checkedValue => {
-            console.log("New value: ", checkedValue);
-          }}
-          fireOnMount={true}
-          itemClassName="cssForItem"
-          inputClassName="cssForInput"
-          labelClassName="label"
-          groupClassName="radio-group"
-        />
+        <div className="radio-group">
+          <input
+            type="radio"
+            id="chsidess-boker"
+            value={this.state.seider}
+            onChange={this.updateSeider}
+            name="seider"
+          />
+          <label className="label" htmlFor="chsidess-boker">
+            chsidess boker
+          </label>
+          <input
+            type="radio"
+            id="nigle-boker"
+            value={this.state.seider}
+            onChange={this.updateSeider}
+            name="seider"
+          />
+          <label className="label" htmlFor="nigle-boker">
+            nigle boker
+          </label>
+          <input
+            type="radio"
+            id="nigle-erev"
+            value={this.state.seider}
+            onChange={this.updateSeider}
+            name="seider"
+          />
+          <label className="label" htmlFor="nigle-erev">
+            nigle erev
+          </label>
+          <input
+            type="radio"
+            id="chsidess-erev"
+            value={this.state.seider}
+            onChange={this.updateSeider}
+            name="seider"
+          />
+          <label className="label" htmlFor="chsidess-erev">
+            chsidess erev
+          </label>
+        </div>
         <StudentList mission={"attendace"} />
       </div>
     );
