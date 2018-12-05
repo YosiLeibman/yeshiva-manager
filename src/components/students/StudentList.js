@@ -11,8 +11,20 @@ import { firestoreConnect } from "react-redux-firebase";
 import StudentDetaile from "./StudentDetails";
 
 class StudentList extends Component {
-  some = () => {
-    console.log(this.props.users);
+  state = {
+    attendace: []
+  };
+  // the indeed fired here when its changet at the
+  // attendacePart comp.
+  // and the state actualy get the data.
+  // now i need fix the multiple radio-goups to see if it added to state
+  // when two or more students get signed, or they replace the preveuse.
+  addStdntToMainList = newStdntAttArr => {
+    this.setState({
+      ...this.state,
+      attendace: newStdntAttArr
+    });
+    console.log("fuc was fired!", this.state);
   };
   render() {
     return (
@@ -20,9 +32,22 @@ class StudentList extends Component {
         {this.props.users &&
           this.props.users.map(user => {
             return (
-              <StudentDetaile user={user} mission={"attendace"} key={user.id} />
+              <div className="student" key={user.id}>
+                <StudentDetaile
+                  user={user}
+                  mission={"attendace"}
+                  addStdntToMainList={this.addStdntToMainList}
+                />
+              </div>
             );
           })}
+        <p>
+          here its still the render func. after all students make here submit
+          btn and connect to db directly from here. just pass the state to DB.
+          another option is onSubmit pass the state to perent (AttendaceFor
+          comp. and there connect to DB because there are alreary has conection
+          to firestore
+        </p>
       </div>
     );
   }

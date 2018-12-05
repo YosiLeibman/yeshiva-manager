@@ -116,11 +116,8 @@ form button {
   border: 1px solid #ddc485;
   color: #ddc485;
   padding: 20px;
-  margin: 10px auto;
-}
-
-.student-name {
   font-size: 1.3rem;
+  margin: 10px auto;
 }
 
 input[type="radio"] {
