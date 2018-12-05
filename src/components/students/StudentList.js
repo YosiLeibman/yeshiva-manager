@@ -30,17 +30,19 @@ class StudentList extends Component {
     return (
       <div>
         {this.props.users &&
-          this.props.users.map(user => {
-            return (
-              <div className="student" key={user.id}>
-                <StudentDetaile
-                  user={user}
-                  mission={"attendace"}
-                  addStdntToMainList={this.addStdntToMainList}
-                />
-              </div>
-            );
-          })}
+          this.props.users
+            .filter(user => user.userType == "student")
+            .map(user => {
+              return (
+                <div className="student" key={user.id}>
+                  <StudentDetaile
+                    user={user}
+                    mission={"attendace"}
+                    addStdntToMainList={this.addStdntToMainList}
+                  />
+                </div>
+              );
+            })}
         <p>
           here its still the render func. after all students make here submit
           btn and connect to db directly from here. just pass the state to DB.
