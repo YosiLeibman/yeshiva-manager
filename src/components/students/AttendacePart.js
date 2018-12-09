@@ -21,48 +21,44 @@ class AttendacePart extends Component {
       studentId: e.target.name,
       studentStatus: e.target.id
     };
-    this.props.addStdntToMainList(newStdntAttArr);
+    this.props.addStdntToMainList(newStdntAttArr, "attendace");
+    console.log(e.target.name, e.target.id);
 
     // its work. update the local state
     this.setState({
       studentId: e.target.name,
       studentStatus: e.target.id
     });
+    console.log(this.state);
   };
+
   render() {
     return (
-      <div className="radio-group">
+      <form className="radio-group" onChange={this.updateStatus}>
         <input
           type="radio"
-          id="option-one"
+          id="OnTime"
           name={this.props.user.id}
-          value={this.state.studentStatus}
-          onChange={this.updateStatus}
+          value="onTime"
         />
-        <label className="label" htmlFor="option-one">
+        <label className="label" htmlFor="OnTime">
           OnTime
         </label>
-        <input
-          type="radio"
-          id="option-two"
-          name={this.props.user.id}
-          value={this.state.studentStatus}
-          onChange={this.updateStatus}
-        />
-        <label className="label" htmlFor="option-two">
+        <input type="radio" id="Late" name={this.props.user.id} value="Late" />
+        <label className="label" htmlFor="Late">
           Late
         </label>
         <input
           type="radio"
-          id="option-three"
+          id="DidntCame"
           name={this.props.user.id}
-          value={this.state.studentStatus}
-          onChange={this.updateStatus}
+          value="DidntCame"
+          defaultChecked={true}
         />
-        <label className="label" htmlFor="option-three">
+        <label className="label" htmlFor="DidntCame">
           DidntCame
         </label>
-      </div>
+      </form>
     );
   }
 }

@@ -10,6 +10,7 @@ import CreateProject from "../projects/CreateProject";
 import SignIn from "../auth/SignIn";
 import SignUp from "../auth/SignUp";
 import AttendaceFor from "../attendace/AttendaceFor";
+import GradesFor from "../grades/GradesFor";
 
 class App extends Component {
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/attendace-for" component={AttendaceFor} />
+            <Route path="/grades-for" component={GradesFor} />
             <Route path="/create" component={CreateProject} />
           </Switch>
         </div>

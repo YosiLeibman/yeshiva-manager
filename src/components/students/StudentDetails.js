@@ -7,6 +7,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import AttendacePart from "./AttendacePart";
+import GradesPart from "./GradesPart";
 
 const StudentDetails = props => {
   const { user, mission, auth, profile } = props;
@@ -26,9 +27,9 @@ const StudentDetails = props => {
       />
     );
   } else if (mission === "grades") {
-    missionDiv = <AttendacePart user={user} />; // need to be changed to graeds part comp.
-  } else {
-    missionDiv = <AttendacePart user={user} />; // need to be changed to graeds part comp.
+    missionDiv = (
+      <GradesPart user={user} addStdntToMainList={props.addStdntToMainList} />
+    ); // need to be changed to graeds part comp.
   }
   return (
     <div>
@@ -39,8 +40,6 @@ const StudentDetails = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const user = ownProps.user;
-  const mission = ownProps.mission;
   return {
     auth: state.firebase.auth,
     profile: state.firebase.profile

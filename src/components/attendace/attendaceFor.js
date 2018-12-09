@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import StudentList from "../students/StudentList";
-import ReactRadioButtonGroup from "react-radio-button-group";
 
 class attendaceFor extends Component {
   constructor() {

@@ -12,32 +12,42 @@ import StudentDetaile from "./StudentDetails";
 
 class StudentList extends Component {
   state = {
-    attendace: []
+    attendace: [],
+    grades: []
   };
   // the indeed fired here when its changet at the
   // attendacePart comp.
   // and the state actualy get the data.
   // now i need fix the multiple radio-goups to see if it added to state
   // when two or more students get signed, or they replace the preveuse.
-  addStdntToMainList = newStdntAttArr => {
-    this.setState({
-      ...this.state,
-      attendace: newStdntAttArr
-    });
+  addStdntToMainList = (newStdntAttArr, mission) => {
+    if (mission === "attendace") {
+      this.setState({
+        ...this.state,
+        attendace: [this.state.attendace, newStdntAttArr]
+      });
+    } else if (mission === "grades") {
+      this.setState({
+        ...this.state,
+        grades: [this.state.grades, newStdntAttArr]
+      });
+    }
+
     console.log("fuc was fired!", this.state);
   };
+
   render() {
     return (
       <div>
         {this.props.users &&
           this.props.users
-            .filter(user => user.userType == "student")
+            .filter(user => user.userType === "student")
             .map(user => {
               return (
                 <div className="student" key={user.id}>
                   <StudentDetaile
                     user={user}
-                    mission={"attendace"}
+                    mission={this.props.mission}
                     addStdntToMainList={this.addStdntToMainList}
                   />
                 </div>
