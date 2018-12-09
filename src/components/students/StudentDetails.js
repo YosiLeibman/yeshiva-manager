@@ -18,13 +18,54 @@ const StudentDetails = props => {
         return <Redirect to="/student-dashboard" />;
     }
   }
+  const updateStatus = e => {
+    let newStdntAttArr = {
+      studentId: e.currentTarget.name,
+      studentStatus: e.target.id
+    };
+    props.addStdntToMainList(newStdntAttArr, "attendace");
+    console.log(e.target.name, e.target.id);
+  };
   let missionDiv;
   if (mission === "attendace") {
     missionDiv = (
-      <AttendacePart
-        user={user}
-        addStdntToMainList={props.addStdntToMainList}
-      />
+      // <AttendacePart
+      //   user={user}
+      //   addStdntToMainList={props.addStdntToMainList}
+      // />
+      <form className="radio-group">
+        <input
+          type="radio"
+          id="OnTime"
+          name={user.id}
+          value="OnTime"
+          onChange={updateStatus}
+        />
+        <label className="label" htmlFor="OnTime">
+          OnTime
+        </label>
+        <input
+          type="radio"
+          id="Late"
+          name={user.id}
+          value="Late"
+          onChange={updateStatus}
+        />
+        <label className="label" htmlFor="Late">
+          Late
+        </label>
+        <input
+          type="radio"
+          id="DidntCame"
+          name={user.id}
+          value="DidntCame"
+          defaultChecked={true}
+          onChange={updateStatus}
+        />
+        <label className="label" htmlFor="DidntCame">
+          DidntCame
+        </label>
+      </form>
     );
   } else if (mission === "grades") {
     missionDiv = (

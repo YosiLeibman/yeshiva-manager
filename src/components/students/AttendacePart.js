@@ -39,7 +39,7 @@ class AttendacePart extends Component {
           type="radio"
           id="OnTime"
           name={this.props.user.id}
-          value="onTime"
+          value="OnTime"
         />
         <label className="label" htmlFor="OnTime">
           OnTime

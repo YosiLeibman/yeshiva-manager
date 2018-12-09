@@ -32,7 +32,7 @@ class GradesFor extends Component {
     return (
       <div className="container">
         <input
-          type="test"
+          type="text"
           id="exam-name"
           value={this.state.seider}
           onChange={this.updateExamName}
