@@ -22,14 +22,14 @@ class StudentList extends Component {
   // when two or more students get signed, or they replace the preveuse.
   addStdntToMainList = (newStdntAttArr, mission) => {
     if (mission === "attendace") {
+      let newAttendaceArr = [...this.state.attendace, newStdntAttArr];
       this.setState({
-        ...this.state,
-        attendace: [this.state.attendace, newStdntAttArr]
+        attendace: newAttendaceArr
       });
     } else if (mission === "grades") {
+      let newGradesArr = [...this.state.grades, newStdntAttArr];
       this.setState({
-        ...this.state,
-        grades: [this.state.grades, newStdntAttArr]
+        grades: newGradesArr
       });
     }
 
