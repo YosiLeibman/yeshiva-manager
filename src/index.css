@@ -12,7 +12,23 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: #010b1c;
+  background: #f8f1e0;
+}
+
+.main-container {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  right: 35px;
+  bottom: 35px;
+}
+
+.attendace-list {
+  position: absolute;
+  top: 65px;
+  left: 35px;
+  right: 35px;
+  bottom: 35px;
 }
 
 nav {
@@ -75,11 +91,24 @@ form button {
   flex-wrap: wrap;
 }
 
+.seider-choise {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  right: 35px;
+  font-size: 80%;
+}
+
 .container .box {
   border: 3px solid #ddc485;
   color: #ddc485;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,4 +178,23 @@ label + input[type="radio"] + label {
   margin: 20px;
   border-radius: 3px;
   overflow: hidden;
+}
+
+.page-border-decoration {
+  border: 20px solid rgba(0, 255, 166, 0.425);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+@media (min-width: 800px) {
+  .page-border-decoration {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
 }

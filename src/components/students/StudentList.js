@@ -38,7 +38,7 @@ class StudentList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="attendace-list">
         {this.props.users &&
           this.props.users
             .filter(user => user.userType === "student")

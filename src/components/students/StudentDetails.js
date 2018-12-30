@@ -20,7 +20,7 @@ const StudentDetails = props => {
   }
   const updateStatus = e => {
     let newStdntAttArr = {
-      studentId: e.currentTarget.name,
+      studentId: e.target.name,
       studentStatus: e.target.id
     };
     props.addStdntToMainList(newStdntAttArr, "attendace");

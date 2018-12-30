@@ -30,7 +30,7 @@ class attendaceFor extends Component {
     }
 
     return (
-      <div className="container">
+      <div className="seider-choise">
         <div className="radio-group">
           <input
             type="radio"

@@ -17,26 +17,29 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Switch>
-            <Route exact path="/" component={Navbar} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route
-              exact
-              path="/student-dashboard"
-              component={StudentDashboard}
-            />
-            <Route
-              exact
-              path="/teacher-dashboard"
-              component={TeacherDashboard}
-            />
-            <Route path="/project/:id" component={ProjectDetails} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/attendace-for" component={AttendaceFor} />
-            <Route path="/grades-for" component={GradesFor} />
-            <Route path="/create" component={CreateProject} />
-          </Switch>
+          <div className="page-border-decoration" />
+          <div className="main-container">
+            <Switch>
+              <Route exact path="/" component={Navbar} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route
+                exact
+                path="/student-dashboard"
+                component={StudentDashboard}
+              />
+              <Route
+                exact
+                path="/teacher-dashboard"
+                component={TeacherDashboard}
+              />
+              <Route path="/project/:id" component={ProjectDetails} />
+              <Route path="/signin" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/attendace-for" component={AttendaceFor} />
+              <Route path="/grades-for" component={GradesFor} />
+              <Route path="/create" component={CreateProject} />
+            </Switch>
+          </div>
         </div>
       </BrowserRouter>
     );
